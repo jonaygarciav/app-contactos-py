@@ -1,0 +1,40 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: contactos-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ChangeMe!
+      MYSQL_USER: contactos_user
+      MYSQL_PASSWORD: ChangeMe!
+      MYSQL_DATABASE: contactos_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      retries: 5
+      start_period: 20s
+      timeout: 5s
+
+  app:
+    build: .
+    container_name: contactos-app
+    restart: always
+    environment:
+      #FLASK_ENV: production
+      DB_HOST: db
+      DB_NAME: contactos_db
+      DB_USER: contactos_user
+      DB_PASSWORD: ChangeMe!
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  mysql_data:

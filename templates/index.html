@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos App - v{{ version }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Contactos App <small class="text-muted">(v{{ version }} - {{ environment }})</small></h1>
+        <h3 class="mb-4">Lista de Contactos <small class="text-muted">({{ contactos|length }} registros)</small></h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido 1</th>
+                    <th>Apellido 2</th>
+                    <th>Email</th>                    
+                    <th>Tel&eacute;fono</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contacto in contactos %}
+                <tr>
+                    <td>{{ contacto.id }}</td>
+                    <td>{{ contacto.nombre }}</td>
+                    <td>{{ contacto.apellido1 }}</td>
+                    <td>{{ contacto.apellido2 }}</td>
+                    <td>{{ contacto.email }}</td>                    
+                    <td>{{ contacto.telefono }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

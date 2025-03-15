@@ -1,0 +1,44 @@
+# Git ignore para proyectos Flask y Python
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+
+# Archivos de entorno virtual (excepto .venv, que lo mantendremos)
+.env
+.venv/*
+
+# Archivos de logs y caché
+*.log
+*.sqlite3
+instance/
+*.pyc
+*.pyo
+
+# Configuración específica de editores y sistemas
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Dependencias instaladas
+venv/
+Pipfile.lock
+poetry.lock
+
+# Archivos de Docker y compilaciones
+*.pid
+*.tar
+/build/
+/dist/
+*.egg-info/
+
+# Archivos de bases de datos temporales
+*.db
+*.sqlite
+
+# Archivos de credenciales
+*.pem
+*.key
+secrets.json
