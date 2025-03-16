@@ -46,7 +46,7 @@ FLASK_ENV=production python app.py
 ### Construcción de la imagen
 
 ```bash
-docker build -t contactos-app .
+docker build -t app-contactos-py .
 ```
 
 ### Ejecución del contenedor
@@ -59,7 +59,7 @@ docker run -d -p 5000:5000 \
     -e DB_PASSWORD="ChangeMe!" \
     -e DB_HOST="localhost" \
     -e DB_NAME="contactos_db" \
-    --name contactos-container contactos-app
+    --name app-contactos-py app-contactos-py
 ```
 
 
@@ -70,7 +70,7 @@ docker run -d -p 5000:5000 \
     -e DB_PASSWORD="ChangeMe!" \
     -e DB_HOST="localhost" \
     -e DB_NAME="contactos_db" \
-    --name contactos-container contactos-app
+    --name app-contactos-py app-contactos-py
 ```
 
 En producción:
@@ -82,7 +82,7 @@ docker run -d -p 5000:5000 \
     -e DB_PASSWORD="ChangeMe!" \
     -e DB_HOST="localhost" \
     -e DB_NAME="contactos_db" \
-    --name contactos-container contactos-app
+    --name app-contactos-py app-contactos-py
 ```
 
 ## Ejecución con Docker Compose
@@ -94,8 +94,6 @@ docker-compose up -d
 ```
 
 En producción, primero descomentar la línea 28 del fichero docker-compose.yaml y ejecutar:
-
-Esto ejecutará un contenedor de MySQL y la aplicación Flask con la configuración correcta.
 
 ```bash
 docker-compose up -d
@@ -116,3 +114,4 @@ Para ejecutar las pruebas unitarias:
 ```bash
 python test_app.py
 ```
+
