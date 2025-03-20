@@ -15,7 +15,7 @@ Aplicación CRUD en Flask con MySQL y Bootstrap que muestra una tabla con los co
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # En Windows usar: venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -25,20 +25,10 @@ Editar el fichero `config.py` con los datos de conexión a MySQL.
 
 ### Ejecutar la aplicación
 
-Para desarrollo:
+## En la terminal:
 
 ```bash
 python app.py
-```
-
-```bash
-FLASK_ENV=development python app.py
-```
-
-Para producción:
-
-```bash
-FLASK_ENV=production python app.py
 ```
 
 ## Ejecución con Docker
@@ -51,33 +41,8 @@ docker build -t app-contactos-py .
 
 ### Ejecución del contenedor
 
-En desarrollo:
-
 ```bash
 docker run -d -p 5000:5000 \
-    -e DB_USER="contactos_user" \
-    -e DB_PASSWORD="ChangeMe!" \
-    -e DB_HOST="localhost" \
-    -e DB_NAME="contactos_db" \
-    --name app-contactos-py app-contactos-py
-```
-
-
-```bash
-docker run -d -p 5000:5000 \
-    -e FLASK_ENV=development \
-    -e DB_USER="contactos_user" \
-    -e DB_PASSWORD="ChangeMe!" \
-    -e DB_HOST="localhost" \
-    -e DB_NAME="contactos_db" \
-    --name app-contactos-py app-contactos-py
-```
-
-En producción:
-
-```bash
-docker run -d -p 5000:5000 \
-    -e FLASK_ENV=production \
     -e DB_USER="contactos_user" \
     -e DB_PASSWORD="ChangeMe!" \
     -e DB_HOST="localhost" \
@@ -86,14 +51,6 @@ docker run -d -p 5000:5000 \
 ```
 
 ## Ejecución con Docker Compose
-
-En desarrollo:
-
-```bash
-docker-compose up -d
-```
-
-En producción, primero descomentar la línea 28 del fichero docker-compose.yaml y ejecutar:
 
 ```bash
 docker-compose up -d
@@ -114,4 +71,3 @@ Para ejecutar las pruebas unitarias:
 ```bash
 python test_app.py
 ```
-

@@ -30,7 +30,7 @@ class Contacto(db.Model):
 @app.route('/')
 def index():
     contactos = Contacto.query.all()
-    return render_template('index.html', contactos=contactos, version=config.VERSION, environment=os.getenv("FLASK_ENV", "development"))
+    return render_template('index.html', contactos=contactos, version=config.VERSION)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
