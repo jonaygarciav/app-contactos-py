@@ -14,9 +14,9 @@ Aplicación CRUD en Flask con MySQL y Bootstrap que muestra una tabla con los co
 ### Crear entorno virtual e instalar dependencias
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Configurar la base de datos
@@ -28,7 +28,7 @@ Editar el fichero `config.py` con los datos de conexión a MySQL.
 ## En la terminal:
 
 ```bash
-python app.py
+python3 app.py
 ```
 
 ## Ejecución con Docker
@@ -69,5 +69,6 @@ docker-compose down --volumes --rmi all
 Para ejecutar las pruebas unitarias:
 
 ```bash
-python test_app.py
+python3 test_app.py
 ```
+
